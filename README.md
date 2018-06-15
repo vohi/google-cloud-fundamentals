@@ -44,3 +44,33 @@ Google API Client Libraries are generated from discovery documents and include e
 
 Google's Deployment Manager solution is comparable to Terraform, with templates available to deploy pre-paid services (such as Jenkins) via the Cloud Launcher.
 
+## Networking
+
+Default VPC automatically provisioned, with subnets for each region globally. Subnets have IP address range that can be modified. Machines within the same VPC can (in general) talk to each other.
+
+Regional traffic is free.
+
+VPC network provides many internetworking features (policies, routes, firewalls, VPN, cloud router with BGP support).
+
+Interconnect options include Carrier Interconnect, Direct Peering - allows hybrid setups with trusted connectivity between on-prem and GCP. CDN Interconnect gives better pricing for egress of static content.
+
+Cloud Load Balancing allows globally distributed traffic routing.
+
+Cloud CDN replicates static content at the edge of the network.
+
+
+
+## Compute instances
+
+Instances are deployed in a region and AZ.
+
+Standard machines have balanced compute/memory. High-mem machines have comparatively high memory etc. Customising possible, within certain limits (minimum of RAM per vCPU)
+
+Larger disks can deliver higher IOps.
+
+Some attributes (esp disk sizes) can be changed without reboot.
+
+Instance metadata can include startup scripts.
+
+Preemptible instances die after 24 hours at the latest. Generally, designing around machines dying leads to more resilience.
+
