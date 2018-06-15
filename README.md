@@ -114,3 +114,82 @@ Cloud spanner provides horizontally scalling, ACID compliant RDBMS for read and 
 Adds ACID transactions to NoSQL.
 
 Schemaless access through a RESTful interface.
+
+## Containers and Orchestration with Kubernetes
+
+Abstraction layer above a cluster of virtual machines - containers isolate workload, kubernetes assigns workload to capacity.
+
+Cloud providers provide bindings to support Kubernetes (such as disk provisioning); running k8 on premise requires that such bindings are made available.
+
+Setting up k8 is hard (setting up master, registering nodes etc); Kubernetes Engine provides managed kubernetes - managed nodes, managed master (which is transparent). Also includes logging, health monitoring, monitoring.
+
+Container Builder and Container Registry are auxiliary and integrated services. Supports building and managing docker images based on triggers, such as git pushes.
+
+
+## App Engine
+
+Two flavours for building web services (ie HTTP/S): 
+
+* App Engine Standard - easy, but restrictive
+   * supports Java, Python, PHP, Go, Node.js
+   * Services, f.ex memcache, lucene, scheduling, logging
+   * No writes to local file system (perhaps a good thing)
+   * Front-end requests have 60 seconds timeout
+   * Limited availability of 3rd party software installations
+   * free daily quota of 28 instance hours per day; instances not visible
+   * SDKs for dev, test, deploy
+
+* App Engine Flex - less restrictive
+    * No sandbox constraints
+    * Standard runtimes as for AppEngine Standard (but without sandbox constraints)
+    * Custom runtime: any language that supports HTTP requests (package runtime as Dockerfile)
+    * pay per instance, access to instance
+
+Not mutually exclusive - can run multiple versions of same service, some with Standard, some with Flex, and use traffic splitting. Enables microservice architecture.
+
+### Cloud Endpoints
+
+Distributed API management. Access control, call validation (via JSON web token and API keys), metering.
+
+Use swagger to declare endpoint APIs, generate client API libraries and server stubs.
+
+For public endpoints, automatically translate from HTTP to gRPC.
+
+Cloud Endpoints supports Kubernetes and Compute Engine through proxy.
+
+### Apigee
+
+Additional to Cloud Endpoints, includes analytics, monetization options for APIs, developer portal.
+
+Target usecase is transformation and opening up legacy.
+
+## Cloud Functions, Deployment Manager, Stackdriver
+
+### Cloud Source Repository
+
+Hosted git repository with collaboration functionality.
+
+### Cloud Functions
+
+Small code, linked to tiggers to process data. Currently only supports Node.js. Go support coming up.
+
+Recommended Cloud Functions tutorial: google cloud ocr tutorial. Cloud 
+
+### Deployment manager
+
+Infrastructure as code, using a .yaml file.
+
+Provides repeatable deployment, similar to terraform.
+
+Hosted and fully declarative (ansible/puppet considered imperative?!)
+
+### Monitoring with Stackdriver
+
+Supports monitoring, logging, error reporting, debugging, tracing, profiling (new).
+
+Aggregated logging, tracing into latency etc.
+
+Debugger allows setting breakpoints directly into code of applications run in App Engine, Compute Engine, Kubernetes - code is not stopped, but takes snapshot of stack trace and variable values when breakpoint is hit.
+
+Hosted outside Google Cloud console. Best to use a single stackdrive account for multiple projects, single-pane-of-glass for multiple projects.
+
