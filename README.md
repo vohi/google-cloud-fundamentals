@@ -193,3 +193,37 @@ Debugger allows setting breakpoints directly into code of applications run in Ap
 
 Hosted outside Google Cloud console. Best to use a single stackdrive account for multiple projects, single-pane-of-glass for multiple projects.
 
+
+
+## Big Data
+
+Range of services for managing, analysing, visualising data. Scalable and fully managed.
+
+### DataFlow
+
+Streaming and batch processing supported transparently (now contributed to Apache as Beam - batch and stream). Code uses transform-based programming model, building ETL (extract/transform/load) pipelines (source -> transform ->sink) including parallelisation and aggregation by key.
+
+Stream processing includes windowing functionality to allow aggregation.
+
+Video: "Dataflow: A unified model for batch and streaming data processing"
+
+### BigQuery
+
+Standard SQL.
+
+### Pub/Sub
+
+Many-to-many messaging, globally scalable.
+
+### DataLab
+
+Interactive tool for data exploration, transformation, anaylsis, visualisation.
+
+New: colab.research.google.com -> get IPython notebooks for free.
+
+### Machine Learning Platform
+
+* Tensorflow
+* Cloud ML
+* Pre-trained models
+
